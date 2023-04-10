@@ -1,9 +1,11 @@
 'use client';
 
-export const TypingText = () => (
-  <p>Typing Text</p>
+export const TypingText = ({ title,textStyle}) => (
+  <motion.p>
+    Typing Text
+  </motion.p>
 );
 
-export const TitleText = () => (
+export const TitleText = ({ title,textStyle}) => (
   <h2>Title Text</h2>
 );
