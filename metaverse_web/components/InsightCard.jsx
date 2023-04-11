@@ -1,7 +1,7 @@
 'use client';
 
 const InsightCard = () => (
-  <div>
+  <div className={""}>
     Insight Card
   </div>
 );
