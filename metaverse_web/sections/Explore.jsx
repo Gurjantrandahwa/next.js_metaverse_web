@@ -1,13 +1,18 @@
 'use client';
 
 import {motion} from "framer-motion";
-import {TitleText, TypingText} from "../components";
+import {ExploreCard, TitleText, TypingText} from "../components";
 import {useState} from "react";
 import styles from "../styles";
 import {staggerContainer} from "../utils/motion";
+import {exploreWorlds} from "../constants/index"
 
-const Explore = () => (
-    <section className={`${styles.paddings}`} id="explore">
+const Explore = () => {
+
+    const [active, setActive] = useState("world-2");
+    return <section className={`${styles.paddings}`} id="explore">
+
+
         <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -30,8 +35,22 @@ const Explore = () => (
                 }
                 textStyles="text-center"
             />
-        </motion.div>
-    </section>
-);
+            <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
+                {exploreWorlds.map((world, index) => (
+                    <ExploreCard
+                        key={world.id}
+                        {...world}
+                        index={index}
+                        active={active}
+                        handleClick={setActive}
+                    />
+                ))}
 
+            </div>
+        </motion.div>
+
+
+    </section>
+
+}
 export default Explore;
